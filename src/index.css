@@ -1,0 +1,154 @@
+@import "tailwindcss";
+
+/* ───────────── Tokens de diseño ─────────────
+   Azul marino muy oscuro + crema, con rosa, azul claro, lavanda y
+   pequeños acentos amarillos. */
+@theme {
+  --font-sans: "Twemoji Country Flags", "Plus Jakarta Sans Variable", "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --color-navy-950: #060a1c;
+  --color-navy-900: #0a1030;
+  --color-navy-850: #0e1639;
+  --color-navy-800: #131c45;
+  --color-navy-750: #18225a;
+  --color-navy-700: #1e2a66;
+  --color-navy-600: #2b3880;
+  --color-navy-500: #3e4c9c;
+  --color-navy-400: #7a86c7;
+  --color-navy-300: #9fa8da;
+  --color-navy-200: #c9cfee;
+
+  --color-cream-50: #fffaf2;
+  --color-cream-100: #fcf4e7;
+  --color-cream-200: #f5e9d6;
+  --color-cream-300: #e9d7bb;
+
+  --color-ink: #111a45;
+  --color-ink-soft: #4a5382;
+
+  --color-blush-200: #ffd6e2;
+  --color-blush-300: #ffb3c9;
+  --color-blush-400: #ff94b4;
+  --color-blush-500: #f0709a;
+
+  --color-cloud-200: #d4ebff;
+  --color-cloud-300: #a9d6ff;
+  --color-cloud-400: #83c0ff;
+
+  --color-lilac-200: #e4dbff;
+  --color-lilac-300: #cbbcff;
+  --color-lilac-400: #b09aff;
+  --color-lilac-500: #9277f2;
+
+  --color-honey-200: #fff0c2;
+  --color-honey-300: #ffe08e;
+  --color-honey-400: #ffd05c;
+
+  --color-mint-300: #9eeccd;
+  --color-mint-400: #6fdcb2;
+  --color-mint-600: #1f8a63;
+
+  --color-coral-300: #ffb0a8;
+  --color-coral-400: #ff8a7e;
+
+  --shadow-card: 0 24px 48px -30px rgb(2 4 16 / 0.9), 0 2px 10px -4px rgb(2 4 16 / 0.55);
+  --shadow-soft: 0 14px 30px -20px rgb(2 4 16 / 0.8);
+  --shadow-paper: 0 22px 40px -26px rgb(2 4 16 / 0.85), 0 1px 0 0 rgb(255 255 255 / 0.6) inset;
+
+  --radius-4xl: 2rem;
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    -webkit-tap-highlight-color: transparent;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    min-height: 100dvh;
+    background-color: var(--color-navy-950);
+    color: var(--color-cream-50);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: rgb(255 148 180 / 0.35);
+  }
+
+  button,
+  [role="button"] {
+    cursor: pointer;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+  }
+
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+}
+
+/* Foco visible y consistente en toda la app (teclado). */
+@utility focus-ring {
+  &:focus-visible {
+    outline: 2px solid var(--color-honey-300);
+    outline-offset: 3px;
+  }
+}
+
+@utility scroll-thin {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(159 168 218 / 0.35) transparent;
+  &::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgb(159 168 218 / 0.35);
+    border-radius: 999px;
+  }
+}
+
+@utility pb-safe {
+  padding-bottom: max(env(safe-area-inset-bottom), 0.5rem);
+}
+
+@utility text-balance {
+  text-wrap: balance;
+}
+
+/* Fondo con brillos suaves de la paleta. */
+.app-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(58rem 40rem at 8% -12%, rgb(255 148 180 / 0.13), transparent 62%),
+    radial-gradient(52rem 42rem at 102% -4%, rgb(176 154 255 / 0.15), transparent 60%),
+    radial-gradient(44rem 30rem at 50% 115%, rgb(131 192 255 / 0.09), transparent 60%),
+    var(--color-navy-950);
+}
+
+.paper-grain {
+  background-image:
+    radial-gradient(circle at 20% 0%, rgb(255 255 255 / 0.7), transparent 55%),
+    linear-gradient(180deg, var(--color-cream-50), var(--color-cream-100));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}

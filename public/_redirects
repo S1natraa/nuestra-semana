@@ -1,0 +1,4 @@
+# Netlify / Cloudflare Pages: la app es una SPA, así que cualquier ruta
+# (/metas, /ruleta, /restablecer, /unirse/CÓDIGO…) se sirve con index.html.
+# Los archivos que sí existen (JS, CSS, íconos) se siguen sirviendo tal cual.
+/*    /index.html   200

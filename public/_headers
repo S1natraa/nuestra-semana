@@ -1,0 +1,9 @@
+# Netlify / Cloudflare Pages: encabezados de seguridad y caché.
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# Los archivos de /assets llevan un hash en el nombre: se pueden guardar para siempre.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable

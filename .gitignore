@@ -1,0 +1,22 @@
+# Dependencias y builds
+node_modules
+dist
+dist-demo
+coverage
+.scratch
+
+# Credenciales y configuración local: NUNCA se suben
+*.local
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Herramientas y sistema
+.claude/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
