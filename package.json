@@ -4,6 +4,8 @@
   "version": "1.0.0",
   "type": "module",
   "description": "Metas semanales en pareja con competencia amistosa, ruleta de castigos e historial.",
+  "author": "Erick Terrazas",
+  "license": "UNLICENSED",
   "scripts": {
     "dev": "vite",
     "dev:demo": "vite --mode demo",
